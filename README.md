@@ -2,7 +2,7 @@ WASHING MACHINE - FIVE-STAGE PIPELINED MICROCONTROLLER
 ELL7282 / ELL782 Assignment 2
 Logisim Evolution 5.0.0 | 8-bit data | 16-bit instructions
 
-START HERE
+Start Here
 1. Extract the ZIP into an ordinary folder.
 2. Open washing_pipeline.circ in Logisim Evolution 5.0.0.
 3. Main is the default view: input pins are on the left, observed
@@ -13,7 +13,7 @@ START HERE
 4. The wash program is embedded in PROGRAM_ROM. You do NOT need to load
    program.hex for the normal demonstration.
 
-USING THE CLOCK AND INPUTS
+Using the  CLOCK AND Inputs
 - Use the Poke tool (hand) to change pins. MODE is 2 bits; WATER_LEVEL,
   TEMP and DRUM_RPM are 8 bits. Multi-bit pins accept keyboard entry;
   select the pin, then enter its displayed radix value. Pin properties
@@ -28,7 +28,7 @@ USING THE CLOCK AND INPUTS
   This resets PC, pipeline validity, general registers and peripherals.
   RAM is not reset; the wash program does not depend on RAM contents.
 
-MODE 00 DEMONSTRATION
+MODE 00 Demonstration
 1. With ticks paused, reset. Set START=0, DOOR_CLOSED=1, MODE=00,
    WATER_LEVEL=99 decimal (63 hex), TEMP=0 and DRUM_RPM=0.
 2. Run two complete cycles with START=0, then set START=1 and keep it high.
@@ -46,7 +46,7 @@ MODE 00 DEMONSTRATION
    CPU_MOTOR_EN=0 and ACTUAL_MOTOR=0.
 8. Normal completion halts. Reset before another normal cycle.
 
-MODE 01 DEMONSTRATION
+MODE 01 Demonstration
 Reset and repeat with MODE=01. Fill holds at149 decimal (95 hex) and
 ends after WATER_LEVEL=153 decimal (99 hex). Drain at9 again.
 Parameters: mode00 target100 / wash80 clocks / spin40 clocks;
@@ -57,7 +57,7 @@ accepted mode stays fixed (SNAP output), despite pin changes.
 Timer durations are global-clock counts. Processor polling/setup adds latency
 between reaching MATCH and software stopping a phase.
 
-DoorSafety DEMONSTRATION
+DoorSafety Demonstration
 - During wash or spin, confirm CPU_MOTOR_EN=1 and ACTUAL_MOTOR=1.
 - Pause clock low, open DOOR_CLOSED=0: ACTUAL_MOTOR immediately becomes0,
   before any new clock. Advance a rising edge: TRIP becomes1.
@@ -71,7 +71,7 @@ DoorSafety DEMONSTRATION
 The circuit also includes a standalone DoorSafety subcircuit for direct tests.
 This is an educational digital interlock, not a certified appliance design.
 
-SUBMISSION CONTENTS
+Submitted Contents
 washing_pipeline.circ - complete design
 isa.pdf - instruction formats and encoding
 architecture.pdf - pipeline and safety design
@@ -83,7 +83,7 @@ pipeline_traces.pdf - required hazard traces for Sections 8.2-8.4
 validation.pdf - six required validation groups
 README.txt - these operating instructions
 
-CIRCUIT NAMES
+CIRCUIT Names
 Main is the operator panel. WashController contains the processor and ROM.
 Processor is the CPU; RegisterBank is the register file.
 Some reports use earlier names: RUN_PANEL=Main, washing_pipeline=WashController,
@@ -114,5 +114,3 @@ register-bank checks. The connectivity audit checked 847 nets across
 22 subcircuits. These checks cover the exercised scenarios rather
 than every possible input sequence.
 
-To run the automated checks on your device, use RUN_TESTS.bat from
-the separate testing package.
